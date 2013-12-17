@@ -8,7 +8,7 @@ name.each_char do |char|
     article = 'an'
     puts 'Give me ' + article +'.. '+char
   elsif spaces.include?(char)
-    puts ' '
+    puts ''
   else
     article = 'a'
     puts 'Give me ' + article +'.. '+char
