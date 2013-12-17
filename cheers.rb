@@ -7,16 +7,19 @@
 # When given the input of “Abby”. Note: the “a” vs. “an”
 
 
-puts "Whats your name?"
+puts "What's your name?"
 name = gets.upcase.chomp
 vowels = ['A','E','I','O','U']
 
 name.each_char do |char|
   if vowels.include?(char)
     article = 'an'
+    puts 'Give me ' + article +'.. '+char
+  elsif char.nil?
+    puts " "
   else
     article = 'a'
+    puts 'Give me ' + article +'.. '+char
   end
-  puts 'Give me ' + article +'...'+char
 end
 puts name + "'s " + "just GRAND!"
