@@ -53,7 +53,7 @@ EOS
   def test_if_name_has_spaces
   shell_output = ""
   IO.popen('ruby cheers.rb', 'r+') do |pipe|#run this program for me , and type BRAD ..close it and save the output
-    pipe.puts("BRADPITT") #this is what you want it to print
+    pipe.puts("BRAD PITT") #this is what you want it to print
     pipe.close_write
     shell_output = pipe.read
   end
@@ -63,6 +63,7 @@ Give me a.. B
 Give me a.. R
 Give me an.. A
 Give me a.. D
+
 Give me a.. P
 Give me an.. I
 Give me a.. T
