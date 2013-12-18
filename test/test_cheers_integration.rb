@@ -110,5 +110,25 @@ EOS
     assert_equal  expected_output, shell_output
   end
 
+  def test_if_name_has_hyphen
+  shell_output = ""
+  IO.popen('ruby cheers.rb', 'r+') do |pipe|#run this program for me , and type BRAD ..close it and save the output
+    pipe.puts("O'Neal") #this is what you want it to print
+    pipe.close_write
+    shell_output = pipe.read
+  end
+  expected_output = <<EOS
+What's your name?
+Give me an.. O
+____________'
+Give me a.. N
+Give me an.. E
+Give me an.. A
+Give me a.. L
+O'NEAL's just GRAND!
+EOS
+    assert_equal  expected_output, shell_output
+  end
+
 
 end
