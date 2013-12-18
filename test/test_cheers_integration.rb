@@ -130,5 +130,25 @@ EOS
     assert_equal  expected_output, shell_output
   end
 
+  def test_if_user_input_invalid_character
+  shell_output = ""
+  IO.popen('ruby cheers.rb', 'r+') do |pipe|#run this program for me , and type BRAD ..close it and save the output
+    pipe.puts("+-^%$") #this is what you want it to print
+    pipe.close_write
+    shell_output = pipe.read
+  end
+  expected_output = <<EOS
+What's your name?
+invalid
+invalid
+invalid
+invalid
+invalid
+No Name's just GRAND!
+EOS
+    assert_equal  expected_output, shell_output
+  end
+
+
 
 end
