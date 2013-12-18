@@ -73,5 +73,42 @@ EOS
     assert_equal  expected_output, shell_output
   end
 
+  def test_if_name_is_ALLCAPS
+  shell_output = ""
+  IO.popen('ruby cheers.rb', 'r+') do |pipe|#run this program for me , and type BRAD ..close it and save the output
+    pipe.puts("brad pitt") #this is what you want it to print
+    pipe.close_write
+    shell_output = pipe.read
+  end
+  expected_output = <<EOS
+What's your name?
+Give me a.. B
+Give me a.. R
+Give me an.. A
+Give me a.. D
+
+Give me a.. P
+Give me an.. I
+Give me a.. T
+Give me a.. T
+BRAD PITT's just GRAND!
+EOS
+    assert_equal  expected_output, shell_output
+  end
+
+    def test_if_no_name_input
+  shell_output = ""
+  IO.popen('ruby cheers.rb', 'r+') do |pipe|#run this program for me , and type BRAD ..close it and save the output
+    pipe.puts("") #this is what you want it to print
+    pipe.close_write
+    shell_output = pipe.read
+  end
+  expected_output = <<EOS
+What's your name?
+'s just GRAND!
+EOS
+    assert_equal  expected_output, shell_output
+  end
+
 
 end

@@ -13,6 +13,6 @@ name.each_char do |char|
     article = 'a'
     puts 'Give me ' + article +'.. '+char
   end
-
 end
+
 puts name + "'s " + "just GRAND!"
